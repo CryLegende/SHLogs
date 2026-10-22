@@ -4,7 +4,7 @@
 
 # SHLogs
 
-*Plugin du serveur SkyHand.*
+*Écrit des messages dans des fichiers de log dédiés via /shlogs (pour les scripts et les autres plugins).*
 
 <img src="https://img.shields.io/badge/Paper-26.3-f2a900?style=for-the-badge" alt="Paper 26.3"> <img src="https://img.shields.io/badge/Java-25-e76f00?style=for-the-badge" alt="Java 25"> <img src="https://img.shields.io/badge/SkyHand-Opale-3aa655?style=for-the-badge" alt="SkyHand Opale">
 
@@ -14,7 +14,7 @@
 
 ## Présentation
 
-Plugin du serveur SkyHand.
+Écrit des messages dans des fichiers de log dédiés via /shlogs (pour les scripts et les autres plugins).
 
 Utilisé sur : **Opale**.
 
@@ -29,6 +29,10 @@ Utilisé sur : **Opale**.
 | Permission | Description | Par défaut |
 |---|---|---|
 | `shlogs.use` | Autorise l'utilisation de la commande /shlogs | `op` |
+
+## Configuration
+
+Aucun fichier de configuration.
 
 ## Compilation
 
