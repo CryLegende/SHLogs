@@ -6,12 +6,13 @@ author: Cry_Legende
 
 commands:
   shlogs:
-    description: Ajoute un message dans un fichier de log
-    usage: /<commande> <fichier_sans_extention> <message>
-    permission: shlogs.use
-    permission-message: "Vous n'avez pas la permission pour utiliser cette commande."
+    description: Ajoute une ligne dans un fichier de log
+    usage: /<command> <dossier> <fichier> <message>
 
 permissions:
   shlogs.use:
-    description: Autorise l'utilisation de la commande /shlogs
+    description: Autorise l'ajout d'une ligne avec /shlogs
+    default: op
+  shlogs.reload:
+    description: Autorise /shlogs reload
     default: op

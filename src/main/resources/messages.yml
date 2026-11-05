@@ -1,0 +1,9 @@
+# Messages de SHLogs. Codes couleur avec '&'.
+# Variable de line-added : %file% (dossier/fichier).
+
+usage: "&7&l« &c&lSH &8&l» &7Usage : &c/shlogs <dossier> <fichier> <message>&7."
+no-permission: "&7&l« &c&lSH &8&l» &7Vous n'avez pas la &cpermission &7d'utiliser cette commande."
+invalid-name: "&7&l« &c&lSH &8&l» &7Nom de &cdossier &7ou de &cfichier &7invalide."
+not-written: "&7&l« &c&lSH &8&l» &7La ligne n'a pas pu être &cajoutée&7."
+line-added: "&7&l« &a&lSH &8&l» &7Ligne ajoutée dans &a%file%&7."
+reloaded: "&7&l« &a&lSH &8&l» &7Configuration &arechargée&7."

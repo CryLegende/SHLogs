@@ -1,0 +1,28 @@
+# SHLogs
+#
+# Centralise les logs d'actions des plugins du serveur.
+# Les plugins SH écrivent avec SHLogsAPI, les plugins externes avec la commande /shlogs.
+# Arborescence : plugins/SHLogs/<dossier>/<mois>/<fichier>.<extension>
+#
+# Commandes :
+#   /shlogs <dossier> <fichier> <message>   Ajoute une ligne dans un fichier de log.
+#   /shlogs reload                          Recharge config.yml et messages.yml.
+#
+# Permissions :
+#   shlogs.use      Utiliser /shlogs <dossier> <fichier> <message> (op par défaut).
+#   shlogs.reload   Utiliser /shlogs reload (op par défaut).
+
+# Format de la date en début de ligne.
+line-date-format: "dd/MM/yyyy HH:mm:ss"
+
+# Nom du dossier de chaque mois, sous le dossier du plugin.
+month-folder-format: "yyyy-MM"
+
+# Extension des fichiers de log, sans le point.
+file-extension: "yml"
+
+# Nombre maximum de lignes en attente d'écriture. Au-delà, les nouvelles lignes sont ignorées.
+max-pending-lines: 100000
+
+# Secondes laissées aux écritures en attente pendant l'arrêt du serveur.
+shutdown-timeout-seconds: 5
