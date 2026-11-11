@@ -42,16 +42,21 @@ Utilisé sur : **Opale**.
 | Commande | Alias | Description | Permission |
 |---|---|---|---|
 | `/shlogs <dossier> <fichier> <message>` | — | Ajoute une ligne dans un fichier de log | `shlogs.use` |
-| `/shlogs reload` | — | Recharge `config.yml` et `messages.yml` | `shlogs.reload` |
+| `/shlogs reload` | — | Recharge `config.yml` et `messages.yml` | `shlogs.admin.reload` |
+| `/shlogs list [dossier]` | — | Liste les dossiers de logs, ou les fichiers du mois en cours d'un dossier | `shlogs.admin.list` |
+| `/shlogs tail <dossier> <fichier> [lignes]` | — | Affiche les dernières lignes du fichier du mois en cours (10 par défaut, `tail-max-lines` au plus) | `shlogs.admin.tail` |
 
-Le fichier s'écrit sans extension. Une ligne ajoutée depuis la console ne renvoie aucune réponse.
+Le fichier s'écrit sans extension. Une ligne ajoutée depuis la console ne renvoie aucune réponse. `list` et `tail` sont réservés : ils ne peuvent pas servir de nom de dossier avec la première forme. Un reload dont un fichier est invalide ne change rien et donne le fichier et l'erreur. `/shlogs` sans argument affiche une ligne d'usage limitée aux formes autorisées.
 
 ## Permissions
 
 | Permission | Description | Par défaut |
 |---|---|---|
-| `shlogs.use` | Autorise l'ajout d'une ligne avec `/shlogs` | `op` |
-| `shlogs.reload` | Autorise `/shlogs reload` | `op` |
+| `shlogs.use` | Autorise l'ajout d'une ligne avec `/shlogs <dossier> <fichier> <message>` | `op` |
+| `shlogs.admin` | Toutes les sous-commandes d'administration (parent de `shlogs.admin.reload`, `.list`, `.tail`) | `op` |
+| `shlogs.admin.reload` | Autorise `/shlogs reload` | `op` |
+| `shlogs.admin.list` | Autorise `/shlogs list` | `op` |
+| `shlogs.admin.tail` | Autorise `/shlogs tail` | `op` |
 
 ## API
 
@@ -61,7 +66,7 @@ Dépendance Maven, après un `mvn install` de SHLogs :
 <dependency>
     <groupId>org.Cry_Legende</groupId>
     <artifactId>SHLogs</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -104,6 +109,7 @@ Fichier `config.yml`, généré au premier lancement.
 | `file-extension` | Extension des fichiers de log |
 | `max-pending-lines` | Lignes en attente au-delà desquelles les nouvelles sont ignorées |
 | `shutdown-timeout-seconds` | Secondes laissées aux écritures pendant l'arrêt |
+| `tail-max-lines` | Nombre maximal de lignes affichées par `/shlogs tail` |
 
 ## Compilation
 

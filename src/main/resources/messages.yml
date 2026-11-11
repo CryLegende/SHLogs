@@ -1,9 +1,23 @@
 # Messages de SHLogs. Codes couleur avec '&'.
-# Variable de line-added : %file% (dossier/fichier).
+# Variables : %file% (dossier/fichier ou fichier), %subcommands% (formes d'usage autorisées), %folder%, %month%,
+# %count%, %names%, %size%, %line%, %error%.
 
 usage: "&7&l« &c&lSH &8&l» &7Usage : &c/shlogs <dossier> <fichier> <message>&7."
+usage-list: "&7&l« &c&lSH &8&l» &7Usage : &c/shlogs &7%subcommands%&7."
 no-permission: "&7&l« &c&lSH &8&l» &7Vous n'avez pas la &cpermission &7d'utiliser cette commande."
 invalid-name: "&7&l« &c&lSH &8&l» &7Nom de &cdossier &7ou de &cfichier &7invalide."
 not-written: "&7&l« &c&lSH &8&l» &7La ligne n'a pas pu être &cajoutée&7."
 line-added: "&7&l« &a&lSH &8&l» &7Ligne ajoutée dans &a%file%&7."
 reloaded: "&7&l« &a&lSH &8&l» &7Configuration &arechargée&7."
+reload-failed: "&7&l« &c&lSH &8&l» &7Rechargement &cannulé&7 : &c%file% &7est invalide (&c%error%&7). L'ancienne configuration reste active."
+
+list-folders: "&7&l« &e&lSH &8&l» &7Dossiers de logs (&e%count%&7) : &e%names%"
+list-files: "&7&l« &e&lSH &8&l» &7Fichiers de &e%folder% &7pour &e%month% &7(&e%count%&7) :"
+list-file-line: "&8• &e%file% &8(&7%size%&8)"
+list-empty: "&7&l« &e&lSH &8&l» &7Aucun log pour le moment."
+list-folder-empty: "&7&l« &e&lSH &8&l» &7Aucun fichier de &e%folder% &7pour &e%month%&7."
+
+tail-header: "&7&l« &e&lSH &8&l» &e%file% &7(&e%count% &7dernières lignes) :"
+tail-line: "&8• &7%line%"
+tail-not-found: "&7&l« &c&lSH &8&l» &7Aucun fichier &c%file% &7pour le mois en cours."
+tail-error: "&7&l« &c&lSH &8&l» &7Lecture de &c%file% &7impossible."

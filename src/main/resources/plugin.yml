@@ -6,13 +6,26 @@ author: Cry_Legende
 
 commands:
   shlogs:
-    description: Ajoute une ligne dans un fichier de log
-    usage: /<command> <dossier> <fichier> <message>
+    description: Ajoute une ligne dans un fichier de log, consulte et recharge les logs
+    usage: /<command> <dossier> <fichier> <message> | reload | list [dossier] | tail <dossier> <fichier> [lignes]
 
 permissions:
   shlogs.use:
-    description: Autorise l'ajout d'une ligne avec /shlogs
+    description: Autorise l'ajout d'une ligne avec /shlogs <dossier> <fichier> <message>
     default: op
-  shlogs.reload:
+  shlogs.admin:
+    description: Toutes les sous-commandes d'administration de /shlogs
+    default: op
+    children:
+      shlogs.admin.reload: true
+      shlogs.admin.list: true
+      shlogs.admin.tail: true
+  shlogs.admin.reload:
     description: Autorise /shlogs reload
+    default: op
+  shlogs.admin.list:
+    description: Autorise /shlogs list
+    default: op
+  shlogs.admin.tail:
+    description: Autorise /shlogs tail
     default: op

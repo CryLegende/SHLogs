@@ -4,13 +4,22 @@
 # Les plugins SH écrivent avec SHLogsAPI, les plugins externes avec la commande /shlogs.
 # Arborescence : plugins/SHLogs/<dossier>/<mois>/<fichier>.<extension>
 #
-# Commandes :
-#   /shlogs <dossier> <fichier> <message>   Ajoute une ligne dans un fichier de log.
+# Commandes (racine /shlogs, pas d'alias) :
+#   /shlogs <dossier> <fichier> <message>   Ajoute une ligne dans un fichier de log (console comprise).
 #   /shlogs reload                          Recharge config.yml et messages.yml.
+#   /shlogs list [dossier]                  Liste les dossiers de logs, ou les fichiers du mois en cours d'un dossier.
+#   /shlogs tail <dossier> <fichier> [n]    Affiche les dernières lignes du fichier du mois en cours.
+# « list » et « tail » sont réservés : ils ne peuvent pas servir de nom de dossier dans la première forme.
 #
-# Permissions :
-#   shlogs.use      Utiliser /shlogs <dossier> <fichier> <message> (op par défaut).
-#   shlogs.reload   Utiliser /shlogs reload (op par défaut).
+# Permissions (op par défaut) :
+#   shlogs.use           Ajouter une ligne avec /shlogs <dossier> <fichier> <message>.
+#   shlogs.admin         Toutes les sous-commandes ci-dessous.
+#   shlogs.admin.reload  /shlogs reload
+#   shlogs.admin.list    /shlogs list
+#   shlogs.admin.tail    /shlogs tail
+#
+# Un reload relit config.yml et messages.yml ; si l'un des deux est invalide, rien n'est appliqué et le message donne
+# le fichier et l'erreur. Les fichiers de logs ne sont jamais touchés.
 
 # Format de la date en début de ligne.
 line-date-format: "dd/MM/yyyy HH:mm:ss"
@@ -26,3 +35,6 @@ max-pending-lines: 100000
 
 # Secondes laissées aux écritures en attente pendant l'arrêt du serveur.
 shutdown-timeout-seconds: 5
+
+# Nombre maximal de lignes affichées par /shlogs tail (10 par défaut quand le nombre n'est pas donné).
+tail-max-lines: 20

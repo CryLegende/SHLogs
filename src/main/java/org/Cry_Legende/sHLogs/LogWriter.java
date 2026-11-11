@@ -82,6 +82,21 @@ public final class LogWriter {
         return true;
     }
 
+    /** Nom du dossier du mois en cours, selon {@code month-folder-format}. */
+    String currentMonthName() {
+        return settings.monthFolder().format(LocalDateTime.now());
+    }
+
+    /** Extension des fichiers de log, sans le point. */
+    String extension() {
+        return settings.extension();
+    }
+
+    /** Dossier d'un plugin pour le mois en cours (il peut ne pas exister encore). */
+    Path currentMonthFolder(String folder) {
+        return plugin.getDataFolder().toPath().resolve(folder).resolve(currentMonthName());
+    }
+
     /** Un simple nom : il ne doit pas pouvoir sortir du dossier du plugin (« ../.. », séparateurs). */
     public static boolean isValidName(String name) {
         if (name == null || name.isEmpty() || name.equals(".") || name.equals("..")) {
